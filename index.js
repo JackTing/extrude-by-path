@@ -5,7 +5,7 @@ var normalize = require('gl-vec3/normalize')
 var cross = require('gl-vec3/cross')
 var dot = require('gl-vec3/dot')
 var identity = require('gl-mat4/identity')
-var roate = require9'gl-mat4/rotate')
+var rotate = require('gl-mat4/rotate')
 
 var mat = [], v = [], axis = []
 

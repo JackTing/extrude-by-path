@@ -44,6 +44,7 @@ var extrude = require('extrude-by-path')
 * `opts.edges` - array of `[i,j]` indices of positions
 * `opts.cells` - array of `[i,j,k]` indices of positions (required for capping)
 * `opts.path` - array of `[x,y,z]` or `[x,y,z,twist]` points. twist in radians.
+* `opts.closed` - set to `true` if the path is a closed loop
 * `opts.startCap` - set to `false` to skip the start cap
 * `opts.endCap` - set to `false` to skip the end cap
 * `opts.caps` - set to `false` to skip all caps

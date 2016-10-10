@@ -17,10 +17,13 @@ module.exports = function (opts) {
   var edges = opts.edges
   if (!edges) throw new Error('edges not provided')
   var cells = opts.cells
+  var closed = opts.closed
   var spl = positions.length, pl = path.length, sel = edges.length
   for (var i = 0; i < pl; i++) {
     var n = [0,0,1]
-    if (i === 0) {
+    if (closed) {
+      subtract(v,path[(i-1+pl)%(pl-1)],path[(i+1)%(pl-1)])
+    } else if (i === 0) {
       subtract(v,path[i],path[i+1])
     } else if (i === pl-1) {
       subtract(v,path[i-1],path[i])
@@ -49,7 +52,7 @@ module.exports = function (opts) {
       mesh.cells.push([i*spl+e[1],(i+1)*spl+e[0],(i+1)*spl+e[1]])
     }
   }
-  if (cells && opts.startCap !== false && opts.caps !== false) {
+  if (cells && !closed && opts.startCap !== false && opts.caps !== false) {
     for (var i = 0; i < cells.length; i++) {
       var c = [], len = cells[i].length
       for (var j = 0; j < len; j++) {
@@ -58,7 +61,7 @@ module.exports = function (opts) {
       mesh.cells.push(c)
     }
   }
-  if (cells && opts.endCap !== false && opts.caps !== false) {
+  if (cells && !closed && opts.endCap !== false && opts.caps !== false) {
     for (var i = 0; i < cells.length; i++) {
       var c = [], len = cells[i].length
       for (var j = 0; j < len; j++) {

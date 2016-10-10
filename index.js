@@ -12,9 +12,12 @@ var mat = [], v = [], axis = []
 module.exports = function (opts) {
   var mesh = { positions: [], cells: [] }
   var path = opts.path
-  var positions = opts.shape.positions
-  var edges = opts.shape.edges, cells = opts.shape.cells
-  var spl = positions.length, sel = edges.length, pl = path.length
+  var positions = opts.positions
+  if (!positions) throw new Error('positions not provided')
+  var edges = opts.edges
+  if (!edges) throw new Error('edges not provided')
+  var cells = opts.cells
+  var spl = positions.length, pl = path.length, sel = edges.length
   for (var i = 0; i < pl; i++) {
     var n = [0,0,1]
     if (i === 0) {

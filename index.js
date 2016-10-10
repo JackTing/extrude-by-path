@@ -13,9 +13,8 @@ module.exports = function (opts) {
   var mesh = { positions: [], cells: [] }
   var path = opts.path
   var positions = opts.shape.positions
-  var edges = opts.shape.edges, cells = opts.shape.cells || []
-  var spl = positions.length, sel = edges.length, scl = cells.length
-  var pl = path.length
+  var edges = opts.shape.edges, cells = opts.shape.cells
+  var spl = positions.length, sel = edges.length, pl = path.length
   for (var i = 0; i < pl; i++) {
     var n = [0,0,1]
     if (i === 0) {
@@ -48,8 +47,22 @@ module.exports = function (opts) {
     }
   }
   if (cells && opts.startCap !== false && opts.caps !== false) {
+    for (var i = 0; i < cells.length; i++) {
+      var c = [], len = cells[i].length
+      for (var j = 0; j < len; j++) {
+        c.push(cells[i][j])
+      }
+      mesh.cells.push(c)
+    }
   }
   if (cells && opts.endCap !== false && opts.caps !== false) {
+    for (var i = 0; i < cells.length; i++) {
+      var c = [], len = cells[i].length
+      for (var j = 0; j < len; j++) {
+        c.push(cells[i][j] + (pl-1)*spl)
+      }
+      mesh.cells.push(c)
+    }
   }
   return mesh
 }

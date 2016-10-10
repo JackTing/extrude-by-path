@@ -1,6 +1,6 @@
 {
   "name": "extrude-by-path",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "extrude a 2d shape along a 3d path to build a simplicial complex",
   "main": "index.js",
   "keywords": [

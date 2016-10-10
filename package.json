@@ -1,0 +1,28 @@
+{
+  "name": "extrude-by-path",
+  "version": "1.0.0",
+  "description": "extrude a 2d shape along a 3d path to build a simplicial complex",
+  "main": "index.js",
+  "keywords": [
+    "extrude",
+    "3d",
+    "geometry",
+    "mesh",
+    "path",
+    "webgl"
+  ],
+  "author": "substack",
+  "license": "BSD",
+  "dependencies": {
+    "gl-mat4": "^1.1.4",
+    "gl-vec3": "^1.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/substack/extrude-by-path.git"
+  },
+  "bugs": {
+    "url": "https://github.com/substack/extrude-by-path/issues"
+  },
+  "homepage": "https://github.com/substack/extrude-by-path#readme"
+}
